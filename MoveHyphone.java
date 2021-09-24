@@ -1,24 +1,21 @@
-import java.util.*;
-class MoveHyphone 
-{
-    public static String moveHyphen (String str, int n) 
+// move hyphone at start
+public class MoveHyphone {
+    public static String move(String str)
     {
-        String res = "";
-        for (int i = 0; i < n; i++)
-        {
-            if (str.charAt (i) == '-')
-                res = str.charAt (i) + res;
-    	    else
-                res = res + str.charAt (i);
+        String sum = "";
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i)=='-')
+            {
+                sum = str.charAt(i)+sum;
+            }
+            else
+                sum = sum+str.charAt(i);
         }
-        return res;
+        return sum;
     }
-
-    public static void main (String[]args) 
-    {
-        Scanner sc = new Scanner (System.in);
-        String str = sc.next ();
-
-        System.out.println (moveHyphen (str, str.length ()));
-    } 
+    public static void main(String[] args) {
+        String str = "Move-Hyphens-to-Front";
+        System.out.println(move(str));
+    }
+    
 }

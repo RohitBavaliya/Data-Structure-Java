@@ -1,10 +1,16 @@
-import java.util.Scanner;
-
+/**
+Input:
+arr: 12 3 14 56 77 13
+num: 13
+diff: 2
+Output:
+3
+*/
 public class AbsoluteDiff {
-    public static int countNum(int arr[],int num,int diff,int n)
+    public static int findCount(int arr[],int num,int diff)
     {
         int count = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if(Math.abs(num-arr[i])<=diff)
             {
                 count++;
@@ -12,12 +18,13 @@ public class AbsoluteDiff {
         }
         return count;
     }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int arr[] = {12,3,14,56,77,13};
-        int n = arr.length;
         int num = 13;
         int diff = 2;
-        System.out.println(countNum(arr, num, diff, n));
+        int count = findCount(arr, num, diff);
+        System.out.println(count);
     }
+    
 }

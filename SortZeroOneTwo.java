@@ -1,55 +1,49 @@
-
-// Dutch National Flag Algorithm
+/**
+ * Dautch national flag algorithm
+ * check value of arr[mid]
+ * 
+ * if 0 than swap(low,mid) and mid++ , low++
+ * if 1 than mid++
+ * if 2 than swap(mid,high) and high--
+ */
 public class SortZeroOneTwo {
-
-    public static void sort(int arr[])
+    public static void swap(int arr[],int i,int j)
     {
-        int low = 0;
-        int mid = 0;
-        int high = arr.length - 1;
-        int temp;
+        int temp =arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
+    public static void dnf(int arr[],int n)
+    {
+        int mid = 0;
+        int low = 0;
+        int high = n-1;
         while(mid<=high)
         {
-            switch (arr[mid]) {
-                case 0:
-                    temp = arr[mid];
-                    arr[mid] = arr[low];
-                    arr[low] = temp;
-                    low++;
-                    mid++;
-                    break;
-
-                case 1:
-                    mid++;
-                    break;    
-
-                case 2:
-                    temp = arr[mid];
-                    arr[mid] = arr[high];
-                    arr[high] = temp;
-                    high--;
-                    break;
-
-                default:
-                    break;
+            if(arr[mid] == 0)
+            {
+                swap(arr, mid, low);
+                mid++;
+                low++;
+            }
+            else if(arr[mid] == 1)
+            {
+                mid++;
+            }
+            else if(arr[mid] == 2)
+            {
+                swap(arr, mid, high);
+                high--;
             }
         }
     }
-
-    public static void printArray(int arr[])
-    {
-        for(int i=0;i<arr.length;i++)
-        {
+    public static void main(String[] args) {
+        int arr[] = {0,2,1,2,1,2,0,0};
+        dnf(arr, arr.length);
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]+" ");
         }
-        System.out.println();
-    }
-    public static void main(String[] args) {
-        int arr[] = {0,1,1,0,1,2,1,2,0,0,0,1,2};
-        sort(arr);
-        printArray(arr);
-        
     }
     
 }
